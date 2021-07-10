@@ -106,7 +106,7 @@ const CallPage = () => {
           messageListReducer({
             type: "addMessage",
             payload: {
-              user: "Other",
+              user: "other",
               msg: data.toString(),
               time: Date.now(),
             },
@@ -152,7 +152,7 @@ const CallPage = () => {
     messageListReducer({
       type: "addMessage",
       payload: {
-        user: "You",
+        user: "you",
         msg: msg,
         time: Date.now(),
       },

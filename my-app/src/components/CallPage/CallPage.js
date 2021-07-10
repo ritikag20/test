@@ -19,7 +19,7 @@ import CallPageFooter from "../UI/CallPageFooter/CallPageFooter";
 import CallPageHeader from "../UI/CallPageHeader/CallPageHeader";
 
 let peer = null;
-const socket = io.connect(process.env.REACT_APP_BASE_URL);
+const socket = io.connect("http://localhost:4000");
 const initialState = [];
 
 const CallPage = () => {
@@ -49,10 +49,9 @@ const CallPage = () => {
     }
     initWebRTC();
     socket.on("code", (data) => {
-      if (data.url === url) {
-        peer.signal(data.code);
-      }
+      peer.signal(data);
     });
+  
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -90,10 +89,9 @@ const CallPage = () => {
             };
             await postRequest(`${BASE_URL}${SAVE_CALL_ID}`, payload);
           } else {
-            socket.emit("code", { code: data, url }, (cbData) => {
+            socket.emit("code", data, (cbData) => {
               console.log("code sent");
             });
-
           }
         });
 
@@ -106,7 +104,7 @@ const CallPage = () => {
           messageListReducer({
             type: "addMessage",
             payload: {
-              user: "other",
+              user: "Other",
               msg: data.toString(),
               time: Date.now(),
             },
@@ -142,9 +140,9 @@ const CallPage = () => {
 
           video.play();
         });
-
+        
       })
-      .catch(() => { });
+      .catch(() => {});
   };
 
   const sendMsg = (msg) => {
@@ -152,7 +150,7 @@ const CallPage = () => {
     messageListReducer({
       type: "addMessage",
       payload: {
-        user: "you",
+        user: "You",
         msg: msg,
         time: Date.now(),
       },

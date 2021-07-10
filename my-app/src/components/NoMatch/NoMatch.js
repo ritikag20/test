@@ -10,7 +10,7 @@ const NoMatch = () => {
       <div className="no-match__content">
         <h2>Invalid video call name.</h2>
         <div className="action-btn">
-          <Link className="btn blue" to="/">
+          <Link className="btn green" to="/">
             Return to home screen
           </Link>
         </div>

@@ -1,5 +1,3 @@
-// The page visible to the user after clicking the New Meeting Button on HomePage
-//The video call screen 
 import { useEffect, useReducer, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { getRequest, postRequest } from "./../../utils/apiRequests";
@@ -41,7 +39,6 @@ const CallPage = () => {
   const [isMessenger, setIsMessenger] = useState(false);
   const [messageAlert, setMessageAlert] = useState({});
   const [isAudio, setIsAudio] = useState(true);
-  const [isVideo, setIsVideo] = useState(true);
 
   useEffect(() => {
     if (isAdmin) {
@@ -104,7 +101,7 @@ const CallPage = () => {
           messageListReducer({
             type: "addMessage",
             payload: {
-              user: "Other",
+              user: "other",
               msg: data.toString(),
               time: Date.now(),
             },
@@ -150,7 +147,7 @@ const CallPage = () => {
     messageListReducer({
       type: "addMessage",
       payload: {
-        user: "You",
+        user: "you",
         msg: msg,
         time: Date.now(),
       },
@@ -195,11 +192,6 @@ const CallPage = () => {
     setIsAudio(value);
   };
 
-  const toggleVideo = (value) => {
-    streamObj.getVideoTracks()[0].enabled = value;
-    setIsVideo(value);
-  };
-
   const disconnectCall = () => {
     peer.destroy();
     history.push("/");
@@ -222,8 +214,6 @@ const CallPage = () => {
         screenShare={screenShare}
         isAudio={isAudio}
         toggleAudio={toggleAudio}
-        isVideo={isVideo}
-        toggleVideo={toggleVideo}
         disconnectCall={disconnectCall}
       />
 

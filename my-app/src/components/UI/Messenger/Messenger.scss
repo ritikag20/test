@@ -38,8 +38,12 @@
           margin-left: 10px;
         }
         &.active {
-          border-bottom: 2px solid rgb(44, 191, 211);
-          color: rgb(44, 191, 211);
+          border-bottom: 2px solid #04796a;
+          color: #04796a;
+        }
+        &:hover {
+          cursor: pointer;
+          background: rgba(0, 121, 107, 0.039);
         }
       }
     }
@@ -83,7 +87,7 @@
       .icon {
         cursor: pointer;
         &:hover {
-          color: rgb(44, 191, 211);
+          color: #04796a;
         }
       }
     }

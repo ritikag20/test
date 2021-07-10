@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 200px;
+    width: 350px;
     position: absolute;
     top: 0;
     right: 0;
@@ -19,7 +19,7 @@
       position: relative;
       .alert-circle-icon {
         position: absolute;
-        background: rgb(44, 191, 211);
+        background: #04796a;
         width: 10px;
         height: 10px;
         border-radius: 50%;

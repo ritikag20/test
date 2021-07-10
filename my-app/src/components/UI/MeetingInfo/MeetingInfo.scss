@@ -21,23 +21,6 @@
         font-size: 20px;
       }
     }
-    .add-people-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #04796a;
-      color: #fff;
-      font-size: 16px;
-      padding: 10px;
-      border-radius: 5px;
-      outline: none;
-      border: none;
-      margin-top: 20px;
-      .icon {
-        font-size: 12px;
-        margin-right: 10px;
-      }
-    }
     .info-text {
       color: #222;
       font-size: 14px;
@@ -61,16 +44,6 @@
       .icon {
         cursor: pointer;
         color: #555;
-      }
-    }
-    .permission-text {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      .icon {
-        color: #4385f4;
-        font-size: 20px;
-        margin-right: 10px;
       }
     }
     .small-text {

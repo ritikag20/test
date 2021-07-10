@@ -11,8 +11,8 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo">
-        <img src="https://www.gstatic.com/meet/google_meet_horizontal_wordmark_2020q4_2x_icon_124_40_292e71bcb52a56e2a9005164118f183b.png" alt=""/>
-        <span className="help-text">Meet</span>
+        <img src="https://media.istockphoto.com/vectors/video-call-icon-logo-vector-illustration-video-call-icon-design-vector-id1219543272?k=6&m=1219543272&s=612x612&w=0&h=YLxwCeqVn_Jq5TPV6jxvf3JKYIVxMuGejGGUeE6tf30=" alt=""/>
+        <span className="help-text">MeetUp</span>
       </div>
       <div className="action-btn">
         <FontAwesomeIcon className="icon-block" icon={faQuestionCircle} />

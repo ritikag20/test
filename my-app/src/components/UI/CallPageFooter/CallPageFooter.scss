@@ -9,32 +9,12 @@
   height: 90px;
   background: #ffffff;
   z-index: 1;
-  .left-item {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 350px;
-    .icon-block {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      padding: 0 20px;
-      .icon {
-        margin-left: 10px;
-        font-size: 20px;
-      }
-      &:hover {
-        cursor: pointer;
-        background: #eee;
-      }
-    }
-  }
   .center-item {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items:center;
     justify-content: center;
+    margin-left: 300px;
     flex: 1;
     .icon-block {
       background: #fff;

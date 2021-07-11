@@ -2,8 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCopy,
   faTimes,
-  faUser,
-  faShieldAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import "./MeetingInfo.scss";
 
@@ -20,12 +18,8 @@ const MeetingInfo = ({ setMeetInfoPopup, url }) => {
           }}
         />
       </div>
-      <button className="add-people-btn">
-        <FontAwesomeIcon className="icon" icon={faUser} />
-        Add Others
-      </button>
       <p className="info-text">
-        Or share this meeting link with others you want in the meeting
+        Share this meeting link with others you want in the meeting
       </p>
       <div className="meet-link">
         <span>{url}</span>
@@ -35,14 +29,7 @@ const MeetingInfo = ({ setMeetInfoPopup, url }) => {
           onClick={() => navigator.clipboard.writeText(url)}
         />
       </div>
-      <div className="permission-text">
-        <FontAwesomeIcon className="icon red" icon={faShieldAlt} />
-        <p className="small-text">
-          People who use this meeting link must get your permission before they
-          can join.
-        </p>
-      </div>
-      <p className="small-text">Joined as akshay@gmail.com</p>
+      <p className="small-text">Joined as Admin</p>
     </div>
   );
 };

@@ -2,24 +2,24 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
     .logo {
       display: flex;
       align-items: center;
-      width: 124px;
+      width: 140px;
       img {
-        width: 100%;
+        width: 80%;
       }
       .help-text {
-        font-size: 22px;
+        font-size: 45px;
         padding-left: 4px;
-        color: #5f6368;
+        color:rgb(44, 191, 211);
       }
     }
     .action-btn {
       display: flex;
-      align-items: center;
+      align-items: right;
       .icon-block {
         font-size: 20px;
         padding: 10px;

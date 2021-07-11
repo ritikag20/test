@@ -1,3 +1,5 @@
+const io = require("./../server").io;
+
 module.exports = (socket) => {
   try {
     console.log("Connected");

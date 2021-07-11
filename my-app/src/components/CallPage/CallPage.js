@@ -49,9 +49,10 @@ const CallPage = () => {
     }
     initWebRTC();
     socket.on("code", (data) => {
-      peer.signal(data);
+      if (data.url === url) {
+        peer.signal(data.code);
+      }
     });
-  
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -89,9 +90,10 @@ const CallPage = () => {
             };
             await postRequest(`${BASE_URL}${SAVE_CALL_ID}`, payload);
           } else {
-            socket.emit("code", data, (cbData) => {
+            socket.emit("code", { code: data, url }, (cbData) => {
               console.log("code sent");
             });
+
           }
         });
 
@@ -114,7 +116,7 @@ const CallPage = () => {
             alert: true,
             isPopup: true,
             payload: {
-              user: "other",
+              user: "Other",
               msg: data.toString(),
             },
           });
@@ -142,7 +144,7 @@ const CallPage = () => {
         });
         
       })
-      .catch(() => {});
+      .catch(() => { });
   };
 
   const sendMsg = (msg) => {

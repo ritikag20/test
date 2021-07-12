@@ -27,7 +27,7 @@ const HomePage = () => {
             <h2>Free for everyone.</h2>
             <p>
               We re-engineered the service built for secure
-              meetings, MeetUp, to make it free and available for all.
+              meetings, to make it free and available for all.
             </p>
             <div className="action-btn">
               <button className="btn blue" onClick={startCall}>

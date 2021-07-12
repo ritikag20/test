@@ -11,8 +11,8 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo">
-        <img src="https://media.istockphoto.com/vectors/video-call-icon-logo-vector-illustration-video-call-icon-design-vector-id1219543272?k=6&m=1219543272&s=612x612&w=0&h=YLxwCeqVn_Jq5TPV6jxvf3JKYIVxMuGejGGUeE6tf30=" alt=""/>
-        <span className="help-text">MeetUp</span>
+        <img src="https://media.istockphoto.com/vectors/vector-illustration-of-spilling-coffee-from-a-mug-a-cup-of-coffee-a-vector-id1146099423?k=6&m=1146099423&s=612x612&w=0&h=WowLOSZw49bpIafnVI8cj67b4DzaBCwCLjL7H8E7lxs=" alt=""/>
+        <span className="help-text">Spill-The-Tea</span>
       </div>
       <div className="action-btn">
         <FontAwesomeIcon className="icon-block" icon={faQuestionCircle} />

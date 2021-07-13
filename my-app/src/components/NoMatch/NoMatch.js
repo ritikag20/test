@@ -1,3 +1,5 @@
+//If an incorrect video call link is entered on the browser, this page will appear
+//It will enable us to redirect to the HomePage
 import React from 'react';
 import { Link } from "react-router-dom";
 import "./NoMatch.scss";

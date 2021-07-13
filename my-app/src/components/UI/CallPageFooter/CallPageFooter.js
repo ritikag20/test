@@ -1,3 +1,4 @@
+//This component will present us with Audio, Video, End Call and Present Call buttons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMicrophone,
@@ -9,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./CallPageFooter.scss";
 
+//Various properties have been passed into the CallPageFooter in order to perform functionalities
 const CallPageFooter = ({
   isPresenting,
   stopScreenShare,

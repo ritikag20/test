@@ -1,3 +1,4 @@
+//This Header would appear on the top of the HomePage and NoMatch page- contains the name of the application along with the logo
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faQuestionCircle,

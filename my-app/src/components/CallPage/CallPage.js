@@ -1,4 +1,4 @@
-// The page visible to the user after clicking the New Meeting Button on HomePage
+//The page visible to the user after clicking the New Meeting Button on HomePage
 //The video call screen 
 import { useEffect, useReducer, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
@@ -25,8 +25,13 @@ const initialState = [];
 const CallPage = () => {
   const history = useHistory();
   let { id } = useParams();
+
+  //isAdmin is a constant that would determine whether the MeetingInfoPopUp should appear
   const isAdmin = window.location.hash === "#init" ? true : false;
+
+  //url would be the text that would be sent to the other user by the Admin
   const url = `${window.location.origin}${window.location.pathname}`;
+
   let alertTimeout = null;
 
   const [messageList, messageListReducer] = useReducer(
@@ -34,6 +39,7 @@ const CallPage = () => {
     initialState
   );
 
+  //Defining useState() for the functionalities
   const [streamObj, setStreamObj] = useState();
   const [screenCastStream, setScreenCastStream] = useState();
   const [meetInfoPopup, setMeetInfoPopup] = useState(false);
@@ -43,6 +49,7 @@ const CallPage = () => {
   const [isAudio, setIsAudio] = useState(true);
   const [isVideo, setIsVideo] = useState(true);
 
+  //Using React Hook to display the MeetinInfoPopUp on the Admin's video screen 
   useEffect(() => {
     if (isAdmin) {
       setMeetInfoPopup(true);
@@ -63,7 +70,9 @@ const CallPage = () => {
     }
   };
 
+  //implementing Peer-to-Peer connection using 'simple-peer' library
   const initWebRTC = () => {
+    //after joining the call, the user's video and audio would be enabled by default
     navigator.mediaDevices
       .getUserMedia({
         video: true,
@@ -72,6 +81,7 @@ const CallPage = () => {
       .then((stream) => {
         setStreamObj(stream);
 
+        //creating a new Peer which would initiate the connection to the other Peer
         peer = new Peer({
           initiator: isAdmin,
           trickle: false,
@@ -88,6 +98,7 @@ const CallPage = () => {
               id,
               signalData: data,
             };
+            //the payload will be stored in the redis database
             await postRequest(`${BASE_URL}${SAVE_CALL_ID}`, payload);
           } else {
             socket.emit("code", { code: data, url }, (cbData) => {
@@ -112,6 +123,7 @@ const CallPage = () => {
             },
           });
 
+          //Method to send an Alert to the user that he/she has received new messages
           setMessageAlert({
             alert: true,
             isPopup: true,
@@ -121,6 +133,7 @@ const CallPage = () => {
             },
           });
 
+          //To make the Message Alert disappear from the screen 
           alertTimeout = setTimeout(() => {
             setMessageAlert({
               ...messageAlert,
@@ -130,6 +143,7 @@ const CallPage = () => {
           }, 10000);
         });
 
+        //To enable the video stream from the system camera to the other user's screen after the peer is connected successfully
         peer.on("stream", (stream) => {
           // got remote video stream, now let's show it in a video tag
           let video = document.querySelector("video");
@@ -147,6 +161,7 @@ const CallPage = () => {
       .catch(() => { });
   };
 
+  //Method to send messages by the user
   const sendMsg = (msg) => {
     peer.send(msg);
     messageListReducer({
@@ -159,6 +174,7 @@ const CallPage = () => {
     });
   };
 
+  //Method to share the screen with the other user
   const screenShare = () => {
     navigator.mediaDevices
       .getDisplayMedia({ cursor: true })
@@ -180,6 +196,7 @@ const CallPage = () => {
       });
   };
 
+  //Method to stop sharing the screen with the user
   const stopScreenShare = () => {
     screenCastStream.getVideoTracks().forEach(function (track) {
       track.stop();
@@ -192,22 +209,26 @@ const CallPage = () => {
     setIsPresenting(false);
   };
 
+  //Method to change the Audio settings for the user (mute/unmute) after clicking the "Microphone" button
   const toggleAudio = (value) => {
     streamObj.getAudioTracks()[0].enabled = value;
     setIsAudio(value);
   };
 
+  //Method to change the Video settings for the user (turning on/off the camera) after clicking the "Camera" button
   const toggleVideo = (value) => {
     streamObj.getVideoTracks()[0].enabled = value;
     setIsVideo(value);
   };
 
+  //Method to disconnect the call after clicking the "End Call" button
   const disconnectCall = () => {
     peer.destroy();
     history.push("/");
     window.location.reload();
   };
 
+  //The UI of the entire video call screen 
   return (
     <div className="callpage-container">
       <video className="video-container" src="" controls></video>

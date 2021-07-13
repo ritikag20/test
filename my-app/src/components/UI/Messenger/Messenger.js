@@ -1,3 +1,4 @@
+//This component of the CallPage will enable the user to send and receive text messages during the video call
 import { useState } from "react";
 import "./Messenger.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { formatDate } from "./../../../utils/helpers";
 
+//Various parameters have been passed to send and receive messages along with a list of all the messages sent/received
 const Messenger = ({ setIsMessenger, sendMsg, messageList }) => {
   const [msg, setMsg] = useState("");
 

@@ -1,3 +1,4 @@
+//This MeetInfoPopUp will appear on the Admin's screen so that they can copy the link of the video call and send it to the other user
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCopy,
@@ -5,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./MeetingInfo.scss";
 
+//Various parameters have been passed to display the URL for the Admin to copy 
 const MeetingInfo = ({ setMeetInfoPopup, url }) => {
   return (
     <div className="meeting-info-block">

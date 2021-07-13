@@ -1,3 +1,4 @@
+//Imported in CallPage.js to implement Chat Message functionality
 const MessageListReducer = (state, action) => {
     let draftState = [...state];
     switch (action.type) {

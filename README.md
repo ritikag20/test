@@ -8,9 +8,11 @@ This application was developed during my mentorship in the Microsoft Engage Prog
  - HTML
  - CSS (Sass)
  - Programmimg Languages: Javascript
- - Framework: Node.js/Express
- - Libraries: font-awesome, react-router-dom, node-sass, axios, moment, socket.io-client, simple-peer, shortid, reactjs (useEffect, useReducer, useHistory, useParams etc)
- - Databases: Redis 
+ - Framework: Node.js & Express
+ - Libraries: 
+   - Front-end: font-awesome, react-router-dom, node-sass, axios, moment, socket.io-client, simple-peer, shortid, reactjs (useEffect, useReducer, useHistory, useParams etc)
+   - Back-end: express, cors, dotenv, socket.io, body-parser, redis
+ - Databases: Redis (to store the video call information)
  - Deployment: Heroku
  
  # Functionalities Implemented
